@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 
-let navigateFunction:()=>void;
-export const setNavigateFunction = (navigate:()=>void) => {
+let navigateFunction:any;
+export const setNavigateFunction = (navigate:()=>any) => {
   navigateFunction = navigate;
 };
 const authFetch = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://hosting-7.onrender.com',
   withCredentials:true
 });
 

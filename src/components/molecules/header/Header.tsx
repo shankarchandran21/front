@@ -2,14 +2,16 @@
 import { Avatar, Box, Button, Grid, Grid2, Popover, Typography } from '@mui/material';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import authFetch from '../../../service';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { logoutUserAuth } from '../../../features/auth/authSlice';
 
 
 const Header = () => {
   const {displayName,photoURL} = useSelector((state)=>state.auth)
+const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -25,6 +27,8 @@ const Header = () => {
   };
       const handleLogout =async()=>{
           navigate("/auth")
+          dispatch(logoutUserAuth())
+
           await authFetch.put("/api/user/logout")
 
       }

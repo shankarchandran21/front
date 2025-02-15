@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NotFound from "../../../assets/Results not found.png"
 import { Grid } from '@mui/material';
 const Empty = () => {
